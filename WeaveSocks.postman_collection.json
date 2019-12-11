@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "197587de-4dc4-426c-be6f-0a3e48a2ad90",
+		"name": "WeaveSocks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register a user",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "24474a7e-1d99-4c79-b887-d81ed36186ad",
+								"exec": [
+									"const moment = require('moment');",
+									"const uuid = _.random(1,100) + \"_\" + moment().format(\"DD/MM/YYYY\");",
+									"const email = \"mypostmantest_\" + uuid + \"@test.com\";",
+									"const username = \"mypostmantest_\" + uuid;",
+									"",
+									"pm.environment.set(\"currentEmail\", email);",
+									"pm.environment.set(\"currentUsername\", username);",
+									"",
+									"// Get Current UTC",
+									"pm.sendRequest('https://postman-echo.com/time/now', function (err, res) {",
+									"    if (err) { console.log(err); }",
+									"    else {",
+									"        var currentTime = res.stream.toString();",
+									"        console.log(currentTime);",
+									"        pm.environment.set(\"currentTime\", currentTime);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6931fbb3-9dcf-4a6c-8599-d7be82545b64",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"id\", jsonData.id);",
+									"",
+									"tests[\"Response is less than 2 sec\"] = responseTime < 2000;",
+									"tests[\"Code is '200'\"] = responseCode.code === 200;",
+									"tests[\"Body contains id\"] = responseBody.has(\"id\");",
+									"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader('Content-Type') === 'application/json; charset=utf-8';",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{currentUsername}}\",\n  \"password\": \"123qweASD\",\n  \"email\": \"{{currentEmail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f8f18c9-7a93-4044-b652-377486e74927",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"response is less than 3 sec\"] = responseTime < 3000;",
+									"tests[\"Code is 200\"] = responseCode.code === 200;",
+									"tests[\"Body contains '_embedded'\"] = responseBody.has(\"_embedded\");",
+									"tests[\"Body contains 'customer'\"] = responseBody.has(\"customer\");",
+									"tests[\"Body contains 'firstName'\"] = responseBody.has(\"firstName\");",
+									"tests[\"Body contains 'lastName'\"] = responseBody.has(\"lastName\");",
+									"tests[\"Body contains 'username'\"] = responseBody.has(\"username\");",
+									"tests[\"Body contains 'id'\"] = responseBody.has(\"id\");",
+									"tests[\"Body contains '_links'\"] = responseBody.has(\"_links\");",
+									"tests[\"Body contains 'cards'\"] = responseBody.has(\"cards\");",
+									"tests[\"Body contains 'customer'\"] = responseBody.has(\"customer\");",
+									"tests[\"Body contains 'self'\"] = responseBody.has(\"self\");",
+									"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader('Content-Type') === 'text/plain; charset=utf-8';",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f8f18c9-7a93-4044-b652-377486e74927",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"var username = pm.environment.get(\"currentUsername\");",
+									"var id = pm.environment.get(\"id\");",
+									"",
+									"tests[\"response is less than 3 sec\"] = responseTime < 3000;",
+									"tests[\"Code is 200\"] = responseCode.code === 200;",
+									"tests[\"Body contains 'customer'\"] = responseBody.has(\"customer\");",
+									"tests[\"Body contains 'firstName'\"] = responseBody.has(\"firstName\");",
+									"tests[\"Body contains 'lastName'\"] = responseBody.has(\"lastName\");",
+									"tests[\"Body contains 'username'\"] = responseBody.has(username);",
+									"tests[\"Body contains the current user 'id'\"] = responseBody.has(id);",
+									"tests[\"Body contains '_links'\"] = responseBody.has(\"_links\");",
+									"tests[\"Body contains 'cards'\"] = responseBody.has(\"cards\");",
+									"tests[\"Body contains 'customer'\"] = responseBody.has(\"customer\");",
+									"tests[\"Body contains 'self'\"] = responseBody.has(\"self\");",
+									"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader('Content-Type') === 'text/plain; charset=utf-8';",
+									"pm.test(\"Username equals to the expected value\", function() {",
+									"    pm.expect(jsonData).to.have.property(\"username\", username);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customers/5def84eeee11cb0001601a6a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers",
+								"5def84eeee11cb0001601a6a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  customer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f8f18c9-7a93-4044-b652-377486e74927",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Response is less than 3 sec\"] = responseTime < 3000;",
+									"tests[\"Code is 200\"] = responseCode.code === 200;",
+									"tests[\"Body contains 'status'\"] = responseBody.has(\"status\");",
+									"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader('Content-Type') === 'text/plain; charset=utf-8';",
+									"tests[\"Body does not contain 'ERROR'\"] = !(responseBody.has(\"error\"));",
+									"tests[\"Body contains 'TRUE'\"] = (responseBody.has(\"true\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/customers/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Catalogue",
+			"item": [
+				{
+					"name": "Get Catalogue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f8f18c9-7a93-4044-b652-377486e74927",
+								"exec": [
+									"tests[\"response is less than 3 sec\"] = responseTime < 3000;",
+									"tests[\"Code is 200\"] = responseCode.code === 200;",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Body contains 'id'\"] = responseBody.has(\"id\");",
+									"tests[\"Content-Type is 'application/json'\"] = postman.getResponseHeader('Content-Type') === 'text/plain; charset=utf-8';"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/catalogue",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"catalogue"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

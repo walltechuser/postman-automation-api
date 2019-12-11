@@ -1,0 +1,550 @@
+{
+	"id": "2d320840-8b10-4c8d-83d7-bd56215609e4",
+	"name": "Users",
+	"allTests": [],
+	"timestamp": "2019-12-11T13:15:17.123Z",
+	"collection_id": "197587de-4dc4-426c-be6f-0a3e48a2ad90",
+	"folder_id": "344c7434-5afb-4319-b3ba-cb9b737310ab",
+	"target_type": "folder",
+	"environment_id": "4c8a43af-7580-44ec-9121-1d55e9f983f8",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "197587de-4dc4-426c-be6f-0a3e48a2ad90",
+		"name": "WeaveSocks",
+		"order": [],
+		"folders_order": [
+			"344c7434-5afb-4319-b3ba-cb9b737310ab",
+			"18c08610-589b-434c-95da-ae3e2ad0ccf8"
+		],
+		"isFavorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"results": [
+		{
+			"name": "Register a user",
+			"id": "3d01411f-558e-41c6-a817-f97b73b2a251",
+			"url": "http://206.189.49.222/register",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Response is less than 2 sec": true,
+				"Code is '200'": true,
+				"Body contains id": true,
+				"Content-Type is 'application/json'": true
+			},
+			"testPassFailCounts": {
+				"Response is less than 2 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is '200'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"94"
+			],
+			"allTests": [
+				{
+					"Response is less than 2 sec": true,
+					"Code is '200'": true,
+					"Body contains id": true,
+					"Content-Type is 'application/json'": true
+				}
+			],
+			"time": "94",
+			"totalRequestTime": "94",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get all customers",
+			"id": "59c525c1-4b45-4cc1-b90c-a0012ac1ee73",
+			"url": "http://206.189.49.222/customers",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"response is less than 3 sec": true,
+				"Code is 200": true,
+				"Body contains '_embedded'": true,
+				"Body contains 'customer'": true,
+				"Body contains 'firstName'": true,
+				"Body contains 'lastName'": true,
+				"Body contains 'username'": true,
+				"Body contains 'id'": true,
+				"Body contains '_links'": true,
+				"Body contains 'cards'": true,
+				"Body contains 'self'": true,
+				"Content-Type is 'application/json'": true
+			},
+			"testPassFailCounts": {
+				"response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_embedded'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'customer'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'firstName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'lastName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'username'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'id'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_links'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'cards'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'self'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"238"
+			],
+			"allTests": [
+				{
+					"response is less than 3 sec": true,
+					"Code is 200": true,
+					"Body contains '_embedded'": true,
+					"Body contains 'customer'": true,
+					"Body contains 'firstName'": true,
+					"Body contains 'lastName'": true,
+					"Body contains 'username'": true,
+					"Body contains 'id'": true,
+					"Body contains '_links'": true,
+					"Body contains 'cards'": true,
+					"Body contains 'self'": true,
+					"Content-Type is 'application/json'": true
+				}
+			],
+			"time": "238",
+			"totalRequestTime": "238",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get customer",
+			"id": "ed283aee-530a-430c-9b8c-612bbd06fb0b",
+			"url": "http://206.189.49.222/customers/5def84eeee11cb0001601a6a",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Username equals to the expected value": true,
+				"response is less than 3 sec": true,
+				"Code is 200": true,
+				"Body contains 'customer'": true,
+				"Body contains 'firstName'": true,
+				"Body contains 'lastName'": true,
+				"Body contains 'username'": true,
+				"Body contains the current user 'id'": true,
+				"Body contains '_links'": true,
+				"Body contains 'cards'": true,
+				"Body contains 'self'": true,
+				"Content-Type is 'application/json'": true
+			},
+			"testPassFailCounts": {
+				"Username equals to the expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'customer'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'firstName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'lastName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'username'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains the current user 'id'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_links'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'cards'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'self'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"51"
+			],
+			"allTests": [
+				{
+					"Username equals to the expected value": true,
+					"response is less than 3 sec": true,
+					"Code is 200": true,
+					"Body contains 'customer'": true,
+					"Body contains 'firstName'": true,
+					"Body contains 'lastName'": true,
+					"Body contains 'username'": true,
+					"Body contains the current user 'id'": true,
+					"Body contains '_links'": true,
+					"Body contains 'cards'": true,
+					"Body contains 'self'": true,
+					"Content-Type is 'application/json'": true
+				}
+			],
+			"time": "51",
+			"totalRequestTime": "51",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete  customer",
+			"id": "3eb1dc0a-58ba-4cb6-87fd-c52b0b5dc1f4",
+			"url": "http://206.189.49.222/customers/5df0ebe5ee11cb0001601a9f",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Response is less than 3 sec": true,
+				"Code is 200": true,
+				"Body contains 'status'": true,
+				"Content-Type is 'application/json'": true,
+				"Body does not contain 'ERROR'": true,
+				"Body contains 'TRUE'": true
+			},
+			"testPassFailCounts": {
+				"Response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'status'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body does not contain 'ERROR'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'TRUE'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"75"
+			],
+			"allTests": [
+				{
+					"Response is less than 3 sec": true,
+					"Code is 200": true,
+					"Body contains 'status'": true,
+					"Content-Type is 'application/json'": true,
+					"Body does not contain 'ERROR'": true,
+					"Body contains 'TRUE'": true
+				}
+			],
+			"time": "75",
+			"totalRequestTime": "75",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 34,
+	"totalFail": 0,
+	"totalTime": 458,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Register a user",
+			"id": "3d01411f-558e-41c6-a817-f97b73b2a251",
+			"url": "http://206.189.49.222/register",
+			"time": "2019-12-11T13:15:17.123Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Response is less than 2 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is '200'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get all customers",
+			"id": "59c525c1-4b45-4cc1-b90c-a0012ac1ee73",
+			"url": "http://206.189.49.222/customers",
+			"time": "2019-12-11T13:15:17.123Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_embedded'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'customer'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'firstName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'lastName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'username'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'id'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_links'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'cards'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'self'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get customer",
+			"id": "ed283aee-530a-430c-9b8c-612bbd06fb0b",
+			"url": "http://206.189.49.222/customers/5def84eeee11cb0001601a6a",
+			"time": "2019-12-11T13:15:17.123Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Username equals to the expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'customer'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'firstName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'lastName'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'username'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains the current user 'id'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains '_links'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'cards'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'self'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete  customer",
+			"id": "3eb1dc0a-58ba-4cb6-87fd-c52b0b5dc1f4",
+			"url": "http://206.189.49.222/customers/5df0ebe5ee11cb0001601a9f",
+			"time": "2019-12-11T13:15:17.123Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Response is less than 3 sec": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'status'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is 'application/json'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body does not contain 'ERROR'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body contains 'TRUE'": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
